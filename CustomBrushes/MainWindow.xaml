@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-        <VisualBrush x:Key="Brush1" TileMode="Tile" Viewbox="0,0,0,0">
+        <!--<VisualBrush x:Key="Brush1" TileMode="None" Viewport="0,0,1,1" Viewbox="0.6,0,0.25,1" ViewboxUnits="RelativeToBoundingBox">
             <VisualBrush.Visual>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -21,11 +21,33 @@
                     <Border Grid.Column="2" Background="Green" Height="2" Width="2"></Border>
                 </Grid>
             </VisualBrush.Visual>
+        </VisualBrush>-->
+
+        <VisualBrush x:Key="Brush2" TileMode="None">
+            <VisualBrush.Visual>
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="Red"></SolidColorBrush>
+                        
+                        <!--<ImageBrush ImageSource="C:\Projects\WPF\CustomBrushes\CustomBrushes\bin\Debug\images\storm_trooper.jpg"></ImageBrush>-->
+                    </Rectangle.Fill>
+                </Rectangle>
+            </VisualBrush.Visual>
         </VisualBrush>
 
     </Window.Resources>
 
-    <Grid Background="{StaticResource Brush1}">
+    <Grid>
+        <Rectangle>
+            <Rectangle.Fill>
+                <!--<SolidColorBrush Color="Red"></SolidColorBrush>-->
+                <ImageBrush 
+                    Viewport="0.5,0.5,0.5,0.5" ViewportUnits="RelativeToBoundingBox"
+                    Viewbox="0,0,1,1" ViewboxUnits="RelativeToBoundingBox"
+                    
 
+                    ImageSource="C:\Projects\WPF\CustomBrushes\CustomBrushes\bin\Debug\images\storm_trooper.jpg"></ImageBrush>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Window>
