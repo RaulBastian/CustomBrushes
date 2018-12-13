@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomBrushes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="800">
 
     <Window.Resources>
-        <!--<VisualBrush x:Key="Brush1" TileMode="None" Viewport="0,0,1,1" Viewbox="0.6,0,0.25,1" ViewboxUnits="RelativeToBoundingBox">
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"></Setter>
+        </Style>
+        
+        <VisualBrush x:Key="OnlyViewPortBrushTopLeft" 
+                     TileMode="None" 
+                     Viewport="0,0,0.5,0.5"
+                     ViewportUnits="RelativeToBoundingBox">
             <VisualBrush.Visual>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -21,33 +28,87 @@
                     <Border Grid.Column="2" Background="Green" Height="2" Width="2"></Border>
                 </Grid>
             </VisualBrush.Visual>
-        </VisualBrush>-->
+        </VisualBrush>
 
-        <VisualBrush x:Key="Brush2" TileMode="None">
+        <VisualBrush x:Key="OnlyViewPortBrushBottomRight" 
+                     TileMode="None" 
+                     Viewport="0.5,0.5,0.5,0.5"
+                     ViewportUnits="RelativeToBoundingBox">
             <VisualBrush.Visual>
-                <Rectangle>
-                    <Rectangle.Fill>
-                        <SolidColorBrush Color="Red"></SolidColorBrush>
-                        
-                        <!--<ImageBrush ImageSource="C:\Projects\WPF\CustomBrushes\CustomBrushes\bin\Debug\images\storm_trooper.jpg"></ImageBrush>-->
-                    </Rectangle.Fill>
-                </Rectangle>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="Red" Height="2" Width="2"></Border>
+                    <Border Grid.Column="1" Background="Blue" Height="2" Width="2"></Border>
+                    <Border Grid.Column="2" Background="Green" Height="2" Width="2"></Border>
+                </Grid>
             </VisualBrush.Visual>
         </VisualBrush>
+
+        <VisualBrush x:Key="OnlyViewPortBrushTotalLeft" 
+                     TileMode="None" 
+                     Viewport="0,0,0.5,1"
+                     ViewportUnits="RelativeToBoundingBox">
+            <VisualBrush.Visual>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="Red" Height="2" Width="2"></Border>
+                    <Border Grid.Column="1" Background="Blue" Height="2" Width="2"></Border>
+                    <Border Grid.Column="2" Background="Green" Height="2" Width="2"></Border>
+                </Grid>
+            </VisualBrush.Visual>
+        </VisualBrush>
+
+        <VisualBrush x:Key="OnlyViewPortBrushTotalRight" 
+                     TileMode="None" 
+                     Viewport="0.5,0,0.5,1"
+                     ViewportUnits="RelativeToBoundingBox">
+            <VisualBrush.Visual>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="Red" Height="2" Width="2"></Border>
+                    <Border Grid.Column="1" Background="Blue" Height="2" Width="2"></Border>
+                    <Border Grid.Column="2" Background="Green" Height="2" Width="2"></Border>
+                </Grid>
+            </VisualBrush.Visual>
+        </VisualBrush>
+
+
 
     </Window.Resources>
 
     <Grid>
-        <Rectangle>
-            <Rectangle.Fill>
-                <!--<SolidColorBrush Color="Red"></SolidColorBrush>-->
-                <ImageBrush 
-                    Viewport="0.5,0.5,0.5,0.5" ViewportUnits="RelativeToBoundingBox"
-                    Viewbox="0,0,1,1" ViewboxUnits="RelativeToBoundingBox"
-                    
-
-                    ImageSource="C:\Projects\WPF\CustomBrushes\CustomBrushes\bin\Debug\images\storm_trooper.jpg"></ImageBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock FontStyle="Normal" FontWeight="Bold" Text="Only view port samples, defines how much space it will use from the available space. It starts with X,Y coordenates and then defines the width and height it will take from there." 
+                   TextWrapping="Wrap"></TextBlock>
+        <TextBlock Grid.Row="1" Text="0,0,0.5,0.5"></TextBlock>
+        <Rectangle Grid.Row="2" Fill="{StaticResource OnlyViewPortBrushTopLeft}"> </Rectangle>
+        <TextBlock Grid.Row="3" Text="0.5,0.5,0.5,0.5"></TextBlock>
+        <Rectangle Grid.Row="4" Fill="{StaticResource OnlyViewPortBrushBottomRight}"></Rectangle>
+        <TextBlock Grid.Row="5" Text="0,0,0.5,1"></TextBlock>
+        <Rectangle Grid.Row="6" Fill="{StaticResource OnlyViewPortBrushTotalLeft}"></Rectangle>
+        <TextBlock Grid.Row="7" Text="0.5,0,0.5,1"></TextBlock>
+        <Rectangle Grid.Row="8" Fill="{StaticResource OnlyViewPortBrushTotalRight}"></Rectangle>
     </Grid>
 </Window>
